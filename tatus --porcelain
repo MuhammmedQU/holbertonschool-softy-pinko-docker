@@ -1,0 +1,31 @@
+[1mdiff --git a/task2/back-end/DockerFile b/task2/back-end/DockerFile[m
+[1mindex af58204..28f063c 100644[m
+[1m--- a/task2/back-end/DockerFile[m
+[1m+++ b/task2/back-end/DockerFile[m
+[36m@@ -1,21 +1,16 @@[m
+[31m-FROM ubuntu[m
+[31m- [m
+[32m+[m[32mFROM ubuntu:latest[m
+ [m
+ RUN apt-get update[m
+[31m- [m
+[32m+[m[32mRUN apt-get upgrade -y[m
+ [m
+[31m-RUN apt-get upgrade[m
+[32m+[m[32mRUN apt-get install -y python3 python3-pip[m
+ [m
+[31m-RUN apt-get install python3 python3-pip[m
+[31m- [m
+[32m+[m[32mRUN rm /usr/lib/python*/EXTERNALLY-MANAGED[m
+ [m
+ RUN pip3 install flask[m
+[31m- [m
+ [m
+ WORKDIR /app[m
+[31m- [m
+ [m
+[31m-COPY api.py /app/api.py[m
+[31m- [m
+[32m+[m[32mCOPY ./api.py /app/api.py[m
+ [m
+ CMD python3 api.py[m
